@@ -49,6 +49,10 @@ code {
 	background-color: #1f3a58;
 	padding: 10px;
 	font-size: 1rem;
+	text-transform: capitalize;
+}
+.ui-datepicker-month {
+	text-transform: capitalize;
 }
 .ui-datepicker-material-header .ui-datepicker-material-date {
 	padding: 20px;

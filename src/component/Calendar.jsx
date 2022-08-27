@@ -1,20 +1,13 @@
 import React from 'react';
-import moment from 'moment';
-import 'moment/locale/ru';
 import HeaderCalendar from './HeaderCalendar';
-import { settingMoment } from '../lib/momentum';
+import { settingMoment, daysEnum, createDateList } from '../lib/moment';
 import { isWeek } from '../utils/calendar.operators';
-//
+//class="ui-datepicker-other-month"
 //className='ui-datepicker-today'
 export function Calendar(props) {
-	/**date begin calendar */
-	const startDay = moment().startOf('month').startOf('week');
+	const daysArray = createDateList();
 
-	const day = startDay.clone().subtract(1, 'day');
-
-	const daysArray = [...Array(42)].map(() => day.add(1, 'day').clone());
-
-	let enumDays = moment.weekdaysShort();
+	let enumDays = daysEnum();
 
 	/**
 	 * For rendering every table row
@@ -58,13 +51,13 @@ export function Calendar(props) {
 			<HeaderCalendar />
 			<table className='ui-datepicker-calendar'>
 				<colgroup>
-					<col />
-					<col />
-					<col />
-					<col />
-					<col />
-					<col className='ui-datepicker-week-end' />
-					<col className='ui-datepicker-week-end' />
+					{[1, 2, 3, 4, 5, 6, 7].map(col => {
+						return col < 6 ? (
+							<col key={col} />
+						) : (
+							<col className='ui-datepicker-week-end' key={col} />
+						);
+					})}
 				</colgroup>
 				<thead>
 					<tr>

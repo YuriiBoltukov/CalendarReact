@@ -1,9 +1,11 @@
 import React from 'react';
 import moment from 'moment';
 import 'moment/locale/ru';
+import { settingMoment } from '../lib/moment';
 
 export default function HeaderCalendar() {
-	moment.updateLocale('ru');
+	settingMoment();
+
 	return (
 		<>
 			<div className='ui-datepicker-material-header'>
