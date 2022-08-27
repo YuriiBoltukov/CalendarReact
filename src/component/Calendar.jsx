@@ -8,7 +8,7 @@ import {
 } from '../lib/moment';
 import { isWeek } from '../utils/calendar.operators';
 
-export function Calendar(props) {
+export function Calendar() {
 	/**
 	 * Array of days
 	 * @Type {moment.Moment[]}
