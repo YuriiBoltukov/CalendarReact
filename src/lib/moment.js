@@ -27,7 +27,7 @@ function daysEnum() {
 }
 
 /**
- * For creating dateList from last days before manth
+ * For creating dateList from last days before month
  * current month abd new month
  * @returns {moment.Moment[]}
  */
@@ -40,4 +40,12 @@ function createDateList() {
 	return [...Array(42)].map(() => day.add(1, 'day').clone());
 }
 
-export { settingMoment, daysEnum, createDateList };
+function isToday(day) {
+	return day.format('DDMMYYYY') === moment().format('DDMMYYYY');
+}
+
+function isCurrentMonth(day) {
+	return day.format('MMYYYY') === moment().format('MMYYYY');
+}
+
+export { settingMoment, daysEnum, createDateList, isToday, isCurrentMonth };

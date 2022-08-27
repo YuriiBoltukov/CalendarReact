@@ -1,9 +1,14 @@
 import React from 'react';
 import HeaderCalendar from './HeaderCalendar';
-import { settingMoment, daysEnum, createDateList } from '../lib/moment';
+import {
+	settingMoment,
+	daysEnum,
+	createDateList,
+	isToday,
+	isCurrentMonth,
+} from '../lib/moment';
 import { isWeek } from '../utils/calendar.operators';
-//class="ui-datepicker-other-month"
-//className='ui-datepicker-today'
+
 export function Calendar(props) {
 	const daysArray = createDateList();
 
@@ -29,6 +34,21 @@ export function Calendar(props) {
 	}
 
 	/**
+	 *
+	 * @param {*} day
+	 */
+	function defineTdClassList(day) {
+		let classList = '';
+		if (isToday(day)) {
+			classList += 'ui-datepicker-today';
+		}
+		if (!isCurrentMonth(day)) {
+			classList += 'ui-datepicker-other-month';
+		}
+		return classList;
+	}
+
+	/**
 	 * For rendering each table row
 	 * @param {number} key
 	 * @param {*} days
@@ -38,7 +58,9 @@ export function Calendar(props) {
 		return (
 			<tr key={key}>
 				{days.map(day => (
-					<td key={day.format('DDMMYYYY')}>{day.format('D')}</td>
+					<td className={defineTdClassList(day)} key={day.format('DDMMYYYY')}>
+						{day.format('D')}
+					</td>
 				))}
 			</tr>
 		);
