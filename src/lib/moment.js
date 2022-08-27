@@ -40,10 +40,20 @@ function createDateList() {
 	return [...Array(42)].map(() => day.add(1, 'day').clone());
 }
 
+/**
+ * For checking is today day
+ * @param {moment.Moment} day
+ * @returns {boolean}
+ */
 function isToday(day) {
 	return day.format('DDMMYYYY') === moment().format('DDMMYYYY');
 }
 
+/**
+ * For checking is current month
+ * @param {moment.Moment} day
+ * @returns {boolean}
+ */
 function isCurrentMonth(day) {
 	return day.format('MMYYYY') === moment().format('MMYYYY');
 }

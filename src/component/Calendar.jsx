@@ -1,4 +1,3 @@
-import React from 'react';
 import HeaderCalendar from './HeaderCalendar';
 import {
 	settingMoment,
@@ -19,11 +18,11 @@ export function Calendar(props) {
 	/**
 	 * Enumeration of week days
 	 */
-	let enumDays = daysEnum();
+	const enumDays = daysEnum();
 
 	/**
 	 * For rendering every table row
-	 * @param {*} days
+	 * @param {moment.Moment[]} days
 	 * @returns {string}
 	 */
 	function renderDatesForView(days) {
@@ -42,7 +41,7 @@ export function Calendar(props) {
 
 	/**
 	 * For defining class list of td
-	 * @param {*} day
+	 * @param {moment.Moment} day
 	 * @returns {string}
 	 */
 	function defineTdClassList(day) {
@@ -59,7 +58,7 @@ export function Calendar(props) {
 	/**
 	 * For rendering each table row
 	 * @param {number} key
-	 * @param {*} days
+	 * @param {moment.Moment[]} days
 	 * @returns {string}
 	 */
 	function renderDays(key, days) {
