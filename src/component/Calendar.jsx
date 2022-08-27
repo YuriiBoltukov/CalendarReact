@@ -10,8 +10,15 @@ import {
 import { isWeek } from '../utils/calendar.operators';
 
 export function Calendar(props) {
+	/**
+	 * Array of days
+	 * @Type {moment.Moment[]}
+	 */
 	const daysArray = createDateList();
 
+	/**
+	 * Enumeration of week days
+	 */
 	let enumDays = daysEnum();
 
 	/**
@@ -34,8 +41,9 @@ export function Calendar(props) {
 	}
 
 	/**
-	 *
+	 * For defining class list of td
 	 * @param {*} day
+	 * @returns {string}
 	 */
 	function defineTdClassList(day) {
 		let classList = '';
